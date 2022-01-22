@@ -29,7 +29,6 @@ public class DBService {
 	
 	
 	
-	
 	public void instanciaDB() {
 		
 		 Tecnico tec1 = new Tecnico(null, "Nicolas Tanaka","14758740522","tanakanick@gmail.com","nick0@");
