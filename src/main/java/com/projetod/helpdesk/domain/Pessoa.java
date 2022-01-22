@@ -1,21 +1,49 @@
 package com.projetod.helpdesk.domain;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.projetod.helpdesk.domain.enums.Perfil;
 
-public abstract class Pessoa {
-
+@Entity
+public abstract class Pessoa implements Serializable {
+	                                     
+	
+	private static final long serialVersionUID = 1L;
+										// Cria uma Sequencia de Bytes
+	                                     // Para que os dados possam ser trafegados na rede
+                                    // possam ser amazenados em memoria e recuper
+	@Id   
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Integer id;
 	protected String nome;
+	
+	@Column(unique = true)
 	protected String cpf;
+	
+	@Column(unique = true)
 	protected String email;
 	protected String senha;
+	
+	@ElementCollection(fetch = FetchType.EAGER)
+	@CollectionTable(name = "PERFIS")
 	protected Set<Integer> perfis = new HashSet<>();
+	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriação = LocalDate.now(); // momento atual
 	
 	
