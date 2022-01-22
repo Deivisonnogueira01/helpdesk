@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.projetod.helpdesk.domain.enums.Perfil;
+
 @Entity
 public class Cliente extends Pessoa {
     
@@ -16,12 +18,14 @@ public class Cliente extends Pessoa {
 
 	public Cliente() {
 		super();
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	 // nao se passa uma lista de chamados quando se instacia um
 	//cliente
 	public Cliente(Integer id, String nome, String cpf, String email, String senha) {
 		super(id, nome, cpf, email, senha);
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	   // Polimorfismo
