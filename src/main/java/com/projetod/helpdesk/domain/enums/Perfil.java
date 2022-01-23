@@ -31,6 +31,7 @@ public enum Perfil {
 		}
 		for(Perfil x : Perfil.values()) {
 			if(cod.equals(x.getNumeracao())) {
+				return x;
 				
 			}
 		}

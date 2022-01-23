@@ -16,7 +16,7 @@ public class TecnicoService {
 	
 	
 	
-	public Tecnico findByid(Integer id) {
+	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = repository.findById(id);
 		return obj.orElse(null);
 	}
