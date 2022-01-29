@@ -16,15 +16,15 @@ import com.projetod.helpdesk.services.TecnicoService;
 @RestController
 @RequestMapping(value = "/tecnicos")
 public class TecnicoResource {
-	
+
 	@Autowired
 	private TecnicoService service;
-	
-@GetMapping(value = "/{id}")	
- public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id){
-	Tecnico obj = service.findById(id);
-	return ResponseEntity.ok().body(new TecnicoDTO(obj));
-	 
- }
-	
+
+	@GetMapping(value = "/{id}")
+	public ResponseEntity<TecnicoDTO> findById(@PathVariable Integer id) {
+		Tecnico obj = service.findById(id);
+		return ResponseEntity.ok().body(new TecnicoDTO(obj));
+
+	}
+
 }
