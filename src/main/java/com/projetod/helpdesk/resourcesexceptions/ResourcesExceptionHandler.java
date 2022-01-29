@@ -20,6 +20,7 @@ public class ResourcesExceptionHandler {
 	    StandardError error = new StandardError(System.currentTimeMillis(),
 	    		HttpStatus.NOT_FOUND.value(),"Object NotFound" , ex.getMessage(),
 	    		request.getRequestURI());
+	    
 	    	return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
 	    }
 	}

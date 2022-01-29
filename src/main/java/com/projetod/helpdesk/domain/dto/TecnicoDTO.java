@@ -16,12 +16,9 @@ public class TecnicoDTO implements Serializable{
 	
 	protected Integer id;
 	protected String nome;
-	
 	protected String cpf;
-	
 	protected String email;
 	protected String senha;
-	
 	protected Set<Integer> perfis = new HashSet<>();
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
@@ -29,6 +26,7 @@ public class TecnicoDTO implements Serializable{
 
 	public TecnicoDTO() {
 		super();
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public TecnicoDTO(Tecnico obj)
