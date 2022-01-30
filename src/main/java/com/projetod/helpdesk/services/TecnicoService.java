@@ -3,6 +3,8 @@ package com.projetod.helpdesk.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +43,24 @@ public class TecnicoService {
 		Tecnico newObj = new Tecnico(objDTO);
 		return repository.save(newObj);
 	}
+	
+
+	public Tecnico update(Integer id, @Valid TecnicoDTO objDTO) {
+		objDTO.setId(id);
+		Tecnico oldObj = findById(id);
+		validarCpfEEmail(objDTO);
+		oldObj = new Tecnico(objDTO);
+		return repository.save(oldObj);
+	}
+	
+	public void delete(Integer id ) {
+      Tecnico obj = findById(id);
+      if(obj.getChamados().size() > 0) {
+    	  throw new DataIntegrityViolationException("Tecnico possui ordens de Serviço !");
+      }else {
+    	  repository.deleteById(id);
+      }
+	}
 
 
 	private void validarCpfEEmail(TecnicoDTO objDTO) {
@@ -53,8 +73,13 @@ public class TecnicoService {
 		if(obj.isPresent() && obj.get().getId() != objDTO.getId()) {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no Sistema");
 		}
-	}
 	
+	}
+
+
 	
 	
 }
+
+	 
+

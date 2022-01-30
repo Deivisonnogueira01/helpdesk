@@ -31,18 +31,15 @@ public class DBService {
 	
 	public void instanciaDB() {
 		
-		 Tecnico tec1 = new Tecnico(1, "Nicolas Tanaka","14758740522","tanakanick@gmail.com","nick0@");
+		 Tecnico tec1 = new Tecnico(1, "Nicolas Tanaka","147.587.405-22","tanakanick@gmail.com","nick0@");
          tec1.addPerfil(Perfil.ADMIN);
-         
-         Cliente cli1 = new Cliente(null, "Rubens Almeida","40848717693", "rubinho@gmail.xom" , "barrick457"); 
-         
-         Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO,"Chamado 01" ,"primerio chamado" ,tec1,cli1);
-         
-         Tecnico tec2 = new Tecnico(2, "Giuliano hugo","48187545","gh@gmail.com","hugodugrau01");
+         Tecnico tec2 = new Tecnico(2, "Giuliano hugo","481.875.454-44","gh@gmail.com","hugodugrau01");
          tec1.addPerfil(Perfil.TECNICO);
          
-         Cliente cli2 = new Cliente(null, "Usiminas","476784", "usiminas@gmail.xom" , "45@@A011"); 
+         Cliente cli2 = new Cliente(null, "Usiminas","225.478.999-66", "usiminas@gmail.xom" , "45@@A011"); 
+         Cliente cli1 = new Cliente(null, "Rubens Almeida","408.487.176-93", "rubinho@gmail.xom" , "barrick457"); 
          
+         Chamado c1 = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO,"Chamado 01" ,"primerio chamado" ,tec1,cli1);
          Chamado c2 = new Chamado(null, Prioridade.BAIXA, Status.ANDAMENTO,"Chamado 02" ," 2° chamado" ,tec2,cli2);
          
          
