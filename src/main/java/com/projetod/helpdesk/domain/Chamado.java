@@ -59,6 +59,22 @@ public class Chamado implements Serializable{
 		this.cliente = cliente;
 	}
 
+	public LocalDate getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public LocalDate getDataFechamento() {
+		return dataFechamento;
+	}
+
+	public void setDataFechamento(LocalDate dataFechamento) {
+		this.dataFechamento = dataFechamento;
+	}
+
+	public void setDataAbertura(LocalDate dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+
 	public Integer getId() {
 		return id;
 	}
